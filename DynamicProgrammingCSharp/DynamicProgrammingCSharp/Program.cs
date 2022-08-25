@@ -14,8 +14,39 @@ namespace DynamicProgrammingCSharp
             //Console.WriteLine(Tribonacci(37));
 
             //Find if sum is possible by summing up the values in array
-            List<int> list = new List<int>() { 5,1,12 };
-            Console.WriteLine(FindPossibleSum(8, list));
+            //List<int> list = new List<int>() { 5,1,12 };
+            //Console.WriteLine(FindPossibleSum(8, list));
+
+            //Find Minimum number of coins needed to create an amount
+            List<int> list = new List<int>() { 1,10,8,265,24};
+            Console.WriteLine(MinimumCoins(271, list));
+        }
+
+        private static int MinimumCoins(int amount, List<int> list)
+        {
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+            dict.Add(0, 0);
+            return MinCoinsRecursion(amount, list, dict);
+        }
+
+        private static int MinCoinsRecursion(int amount, List<int> list, Dictionary<int, int> dict)
+        {
+            if (dict.ContainsKey(amount)) return dict[amount];
+            if (amount < 0) return -1;
+            if (amount == 0) return 0;
+
+            int min = int.MaxValue;
+            foreach (var item in list)
+            {
+                var curr = MinCoinsRecursion(amount - item, list, dict);
+                if (curr != -1 ) {
+                    curr = curr + 1;
+                    min = Math.Min(min, curr);
+                }
+            }
+            if (min == int.MaxValue) min = -1;
+            dict.Add(amount, min);
+            return dict[amount];
         }
 
         private static bool FindPossibleSum(int val, List<int> list)
