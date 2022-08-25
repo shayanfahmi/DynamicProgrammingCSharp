@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "6udrnTVrUcxD6Km8IoCgkd/s2+U0gcI2eLMMTUubYR3LcM7UIfK4nHcdy7hdvZZDrVVDiLi1HfuNKjomXXilMw==",
+  "success": true,
+  "projectFilePath": "/Users/shayanfahmi/Workspace/DynamicProgrammingCSharp/DynamicProgrammingCSharp/DynamicProgrammingCSharp/DynamicProgrammingCSharp.csproj",
+  "expectedPackageFiles": [
+    "/Users/shayanfahmi/.nuget/packages/microsoft.aspnetcore.app.ref/3.1.10/microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "/Users/shayanfahmi/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.28/microsoft.netcore.app.host.osx-x64.3.1.28.nupkg.sha512",
+    "/Users/shayanfahmi/.nuget/packages/microsoft.netcore.app.ref/3.1.0/microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
