@@ -21,24 +21,61 @@ namespace DynamicProgrammingCSharp
             //List<int> list = new List<int>() { 1,10,8,265,24};
             //Console.WriteLine(MinimumCoins(271, list));
 
-            //Count Paths in a grid
-            List<List<char>> grid = new List<List<char>>();
-            grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'X', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
-            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
-            Console.WriteLine(FindPossiblePath(grid));
+            ////Count Paths in a grid
+            //List<List<char>> grid = new List<List<char>>();
+            //grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'X', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            //Console.WriteLine(FindPossiblePath(grid));
+
+            //Max Path Sum
+            List<List<int>> grid = new List<List<int>>();
+            grid.Add(new List<int>() { 1, 1, 3, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 2, 1, 1, 6, 1, 1, 5, 1, 1, 0, 0, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 5, 1, 1, 1, 1, 0, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 2, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            Console.WriteLine(FindMaxPathSum(grid));
+        }
+
+        private static int FindMaxPathSum(List<List<int>> grid)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            return FindMaxPathSumRecursively(0, 0, grid, dict);
+        }
+
+        private static int FindMaxPathSumRecursively(int x, int y, List<List<int>> grid, Dictionary<string, int> dict)
+        {
+            if (x >= grid.Count) return 0;
+            if (y >= grid[0].Count) return 0;
+            if (dict.ContainsKey(x + "," + y)) return dict[x + "," + y];
+            int downCount = FindMaxPathSumRecursively(x + 1, y, grid, dict);
+            int rightCount = FindMaxPathSumRecursively(x, y + 1, grid, dict);
+            int max = Math.Max(rightCount, downCount);
+            dict.Add(x + "," + y, max + grid[x][y]);
+            return dict[x + "," + y] ;
         }
 
         private static int FindPossiblePath(List<List<char>> grid)
