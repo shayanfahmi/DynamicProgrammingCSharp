@@ -17,9 +17,47 @@ namespace DynamicProgrammingCSharp
             //List<int> list = new List<int>() { 5,1,12 };
             //Console.WriteLine(FindPossibleSum(8, list));
 
-            //Find Minimum number of coins needed to create an amount
-            List<int> list = new List<int>() { 1,10,8,265,24};
-            Console.WriteLine(MinimumCoins(271, list));
+            ////Find Minimum number of coins needed to create an amount
+            //List<int> list = new List<int>() { 1,10,8,265,24};
+            //Console.WriteLine(MinimumCoins(271, list));
+
+            //Count Paths in a grid
+            List<List<char>> grid = new List<List<char>>();
+            grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'X', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'X', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'X', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'X', 'X', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
+            Console.WriteLine(FindPossiblePath(grid));
+        }
+
+        private static int FindPossiblePath(List<List<char>> grid)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            return FindPossiblePathRecursively(0, 0, grid, dict);
+        }
+
+        private static int FindPossiblePathRecursively(int x, int y, List<List<char>> grid, Dictionary<string, int> dict)
+        {
+            if (dict.ContainsKey(x + "," + y)) return dict[x + "," + y];
+            if (x >= grid.Count) return 0;
+            if (y >= grid[0].Count) return 0;
+            if (grid[x][y] == 'X') return 0;
+            if (x == grid.Count - 1 && y == grid[0].Count - 1) return 1;
+            int rightCount = FindPossiblePathRecursively(x + 1, y, grid, dict);
+            int downCount = FindPossiblePathRecursively(x, y + 1, grid, dict);
+            dict.Add(x + "," + y, rightCount + downCount);
+            return rightCount + downCount;
         }
 
         private static int MinimumCoins(int amount, List<int> list)

@@ -1,4 +1,26 @@
 ﻿<Properties StartupConfiguration="{06B2C6B8-9A5A-422D-9D7E-47E359F52D7D}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="DynamicProgrammingCSharp/Program.cs">
+    <Files>
+      <File FileName="DynamicProgrammingCSharp/Program.cs" Line="24" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="DynamicProgrammingCSharp" expanded="True">
+            <Node name="DynamicProgrammingCSharp" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
   <MultiItemStartupConfigurations />
-  <MonoDevelop.Ide.ItemProperties.DynamicProgrammingCSharp FirstBuild="True" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.DynamicProgrammingCSharp PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>
