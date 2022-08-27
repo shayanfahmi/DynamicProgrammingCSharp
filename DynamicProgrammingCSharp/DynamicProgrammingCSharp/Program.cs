@@ -70,7 +70,36 @@ namespace DynamicProgrammingCSharp
             //          Console.WriteLine(FindNonAdjacentSum(nums));
 
             //Summing Squares
-            Console.WriteLine(FindSumSquares(31));
+            //Console.WriteLine(FindSumSquares(31));
+
+            //Counting change
+            List<int> coins = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            Console.WriteLine(CountChanges(240, coins));
+        }
+
+        private static int CountChanges(int amount, List<int> coins)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            return CountChangesRecursively(amount, coins, dict);
+
+        }
+
+        private static int CountChangesRecursively(int amount, List<int> coins, Dictionary<string, int> dict, int i = 0)
+        {
+            string key = amount + "," + i;
+            if (dict.ContainsKey(key)) return dict[key];
+            if (amount == 0) return 1;
+            if (i == coins.Count) return 0;
+            int coin = coins[i];
+
+            int total = 0;
+            for (int qty = 0; (qty * coin) <= amount; qty++) {
+                int remainder = amount - (qty * coin);
+                total += CountChangesRecursively(remainder, coins, dict, i+1);
+            }
+
+            dict.Add(key, total);
+            return total;
         }
 
         private static int FindSumSquares(int val)
