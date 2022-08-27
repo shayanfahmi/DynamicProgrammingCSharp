@@ -72,9 +72,61 @@ namespace DynamicProgrammingCSharp
             //Summing Squares
             //Console.WriteLine(FindSumSquares(31));
 
-            //Counting change
-            List<int> coins = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-            Console.WriteLine(CountChanges(240, coins));
+            ////Counting change
+            //List<int> coins = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+            //Console.WriteLine(CountChanges(240, coins));
+
+            ////Array Stepper If it's possible to reach end of array
+            //List<int> numbers = new List<int>() { 2, 4, 2, 0, 0, 1 };
+            //Console.WriteLine(FindArrayStepper(numbers));
+
+            //Max Palin Subsequence (Palindrome)
+            Console.WriteLine(FindPalinSubsequence("chartreusepugvicefree"));
+        }
+
+        private static int FindPalinSubsequence(string str)
+        {
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            return FindPalinSubsequenceRecursively(0, str.Length - 1, str, dict);
+        }
+
+        private static int FindPalinSubsequenceRecursively(int start, int end, string str, Dictionary<string, int> dict)
+        {
+            if (dict.ContainsKey(start + "," + end)) return dict[start + "," + end];
+            if (start >= str.Length || end < 0 || start > end) return 0;
+            if (start == end) return 1;
+            int maxCount = 0;
+            if (str[start] == str[end])
+            {
+                maxCount = Math.Max(maxCount, 2 + FindPalinSubsequenceRecursively(start + 1, end - 1, str, dict));
+            }
+            else {
+                maxCount = Math.Max(maxCount, FindPalinSubsequenceRecursively(start + 1, end, str, dict));
+                maxCount = Math.Max(maxCount, FindPalinSubsequenceRecursively(start, end - 1, str, dict));
+            }
+            dict.Add(start + "," + end, maxCount);
+            return maxCount;
+        }
+
+        private static bool FindArrayStepper(List<int> numbers)
+        {
+            Dictionary<int, bool> dict = new Dictionary<int, bool>();
+            return FindArrayStepperRercursively(0, numbers, dict);
+        }
+
+        private static bool FindArrayStepperRercursively(int pos, List<int> numbers, Dictionary<int, bool> dict)
+        {
+            if (dict.ContainsKey(pos)) return dict[pos];
+            if (pos == numbers.Count - 1) return true;
+            if (pos >= numbers.Count) return false;
+            if (numbers[pos] == 0) return false;
+            for (int i = 1; i <= numbers[pos]; i++) {
+                if (FindArrayStepperRercursively(pos + i, numbers, dict))
+                    return true;
+            }
+
+            dict.Add(pos, false);
+            return false;
         }
 
         private static int CountChanges(int amount, List<int> coins)
