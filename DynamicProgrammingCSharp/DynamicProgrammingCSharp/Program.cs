@@ -40,24 +40,78 @@ namespace DynamicProgrammingCSharp
             //grid.Add(new List<char>() { 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'O', 'X', 'O', 'O', 'O', 'O', 'O', 'O'});
             //Console.WriteLine(FindPossiblePath(grid));
 
-            //Max Path Sum
-            List<List<int>> grid = new List<List<int>>();
-            grid.Add(new List<int>() { 1, 1, 3, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 2, 1, 1, 6, 1, 1, 5, 1, 1, 0, 0, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 5, 1, 1, 1, 1, 0, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 2, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
-            Console.WriteLine(FindMaxPathSum(grid));
+            ////Max Path Sum
+            //List<List<int>> grid = new List<List<int>>();
+            //grid.Add(new List<int>() { 1, 1, 3, 1, 1, 1, 1, 4, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 2, 1, 1, 6, 1, 1, 5, 1, 1, 0, 0, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 5, 1, 1, 1, 1, 0, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 2, 1, 1, 1, 1, 8, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 2, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 9, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 8, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //grid.Add(new List<int>() { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 });
+            //Console.WriteLine(FindMaxPathSum(grid));
+
+            //          //Max Non Adjacent Sum
+            //          List<int> nums = new List<int>() { 72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
+            //30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
+            //83, 80, 56, 68,  6, 22, 56, 96, 77, 98,
+            //61, 20,  0, 76, 53, 74,  8, 22, 92, 37,
+            //30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
+            //72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
+            //42 };
+            //          Console.WriteLine(FindNonAdjacentSum(nums));
+
+            //Summing Squares
+            Console.WriteLine(FindSumSquares(31));
+        }
+
+        private static int FindSumSquares(int val)
+        {
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+            return FindSumSquareRecursively(val, dict);
+        }
+
+        private static int FindSumSquareRecursively(int val, Dictionary<int, int> dict)
+        {
+            if (val == 0) return 0;
+            if (dict.ContainsKey(val)) return dict[val];
+            int min = int.MaxValue;
+            for (int i = 1; i <= Math.Sqrt(val); i++) {
+                int square = i * i;
+                min = Math.Min(min, 1 + FindSumSquareRecursively(val-square, dict));
+            }
+            dict.Add(val, min);
+            return min;
+        }
+
+        private static int FindNonAdjacentSum(List<int> nums)
+        {
+            Dictionary<int, int> dict = new Dictionary<int, int>();
+            int max = 0;
+            for (int i = 0; i < nums.Count; i++) {
+                max = Math.Max(max, FindNonAdjacentSumRecursively(i, nums, dict));
+            }
+            return max;
+        }
+
+        private static int FindNonAdjacentSumRecursively(int x, List<int> nums, Dictionary<int, int> dict)
+        {
+            if (x >= nums.Count) return 0;
+            if (dict.ContainsKey(x)) return dict[x];
+            int max = 0;
+            for (int i = x + 2; i < nums.Count; i++) {
+                max = Math.Max(max, FindNonAdjacentSumRecursively(i, nums, dict));
+            }
+            dict.Add(x, max + nums[x]);
+            return dict[x];
         }
 
         private static int FindMaxPathSum(List<List<int>> grid)
